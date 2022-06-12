@@ -1,4 +1,6 @@
 # PermaRage
+![image](https://img.shields.io/github/downloads/Qidan475/PermaRage/total?style=flat-square)
+
 Pretty simple plugin that allows SCP-096 to have an infinite rage until all targets are gone
 
 ## Le funny config

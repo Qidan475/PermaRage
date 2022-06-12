@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.API.Enums;
 using Exiled.API.Features;
 
 namespace PermaRage
@@ -14,7 +9,7 @@ namespace PermaRage
 
         public override string Author => "Qidan475";
 
-        public override Version Version { get; } = new Version(1, 0, 0);
+        public override Version Version { get; } = new Version(1, 1, 0);
 
         public override Version RequiredExiledVersion { get; } = new Version(5, 2, 1);
 
@@ -28,6 +23,7 @@ namespace PermaRage
             Instance = this;
             evHandlers = new EventHandlers();
 
+            Exiled.Events.Handlers.Scp096.Enraging += evHandlers.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown += evHandlers.OnTryingToCalm;
             Exiled.Events.Handlers.Scp096.ChargingPlayer += evHandlers.OnCharge;
 
@@ -36,6 +32,7 @@ namespace PermaRage
 
         public override void OnDisabled()
         {
+            Exiled.Events.Handlers.Scp096.Enraging -= evHandlers.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown -= evHandlers.OnTryingToCalm;
             Exiled.Events.Handlers.Scp096.ChargingPlayer -= evHandlers.OnCharge;
 
